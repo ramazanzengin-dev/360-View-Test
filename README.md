@@ -28,6 +28,8 @@ urun_36.webp
 
 Fotoğrafları çekerken telefonu sabitleyin, ürünü her seferinde aynı açıda çevirin. Arka planın düz olması işi çok kolaylaştırıyor. Görselleri 1000x1000 px WebP'ye çevirirseniz sayfa da hızlı açılır.
 
+Bu repodaki `sepet-360` klasörü örnek olarak duruyor, dosya düzenini oradan görebilirsiniz.
+
 ## Kurulum
 
 ### 1. Görselleri bir yere yükleyin
@@ -56,7 +58,7 @@ Adresi tarayıcıda açıp görselin geldiğini kontrol edin. Gelmezse birkaç d
 <script src="/zp360.js"></script>
 ```
 
-**Yapıştırarak:** Kullandığınız e-ticaret altyapısında "özel kod", "script ekle" ya da "custom code" gibi bir alan varsa, `zp360-yapistirmalik.txt` dosyasının tamamını oraya yapıştırın. Kategori sorarsa **Fonksiyonel** ya da **Zorunlu** seçin. Analitik ya da pazarlama seçerseniz çerezleri reddeden ziyaretçilerde çalışmayabilir.
+**Yapıştırarak:** Kullandığınız e-ticaret altyapısında "özel kod", "script ekle" ya da "custom code" gibi bir alan varsa, `zp360.js` dosyasının içeriğini başına `<script>`, sonuna `</script>` ekleyerek oraya yapıştırın. Kategori sorarsa **Fonksiyonel** ya da **Zorunlu** seçin. Analitik ya da pazarlama seçerseniz çerezleri reddeden ziyaretçilerde çalışmayabilir.
 
 Sadece belirli sayfalarda çalışsın isterseniz, koddaki `SAYFALAR` listesine sayfa adreslerini yazın:
 
