@@ -1,7 +1,7 @@
 /*
   360 görüntüleyici
   Sürükleyerek dönen 360° ürün görseli. Deneme sürümü.
-  https://github.com/ramazanzengin-dev/360-goruntuleyici
+  https://github.com/ramazanzengin-dev/360-View-Test
   MIT lisansı, ayrıntılar LICENSE dosyasında.
 */
 (function () {
