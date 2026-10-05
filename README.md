@@ -1,44 +1,60 @@
-# 360-View-Test (zp360.js) 🚀
+# zp360.js — 360° Ürün Görüntüleyici / 360° Product Viewer
 
-Developed by **Ramazan Zengin** (Software Developer at **Zümrüt Plastik**)
+Sürükleyerek döndürülen, bağımlılıksız (saf JavaScript) 360° ürün görüntüleyici.
+[Zümrüt Plastik](https://www.zumrutplastik.com.tr) ürün sayfaları için geliştirildi.
 
-An ultra-lightweight, high-performance, and memory-optimized **360-degree interactive product viewer** built from scratch using pure JavaScript. This engine is designed to showcase industrial products (such as store fixtures, baskets, and display stands) seamlessly on e-commerce and retail websites.
+A lightweight, dependency-free 360° product viewer in vanilla JavaScript, built for
+[Zümrüt Plastik](https://www.zumrutplastik.com.tr) product pages.
 
----
+Developed by **Ramazan Zengin**
 
-## 💡 Key Features & Architecture
-
-- **Zero Dependencies (Vanilla JS):** Built with 100% pure JavaScript (`zp360.js`). It does not rely on heavy frameworks or external libraries like React, Next.js, jQuery, or Three.js. This ensures maximum page loading speed (improving LCP and Core Web Vitals).
-- **Circular Array Rotation Algorithm:** Utilizing mathematical logic and modular arithmetic, the engine tracks user drag interactions (mouse/touch pixels) and maps them smoothly across 36 sequenced product frames (shot at 10-degree increments) for an infinite, continuous 360° rotation loop.
-- **Low-Level Memory Management Culture:** Heavily inspired by memory optimization techniques found in **C++ and Assembly**. 
-  - **Asynchronous Image Preloading:** All sequenced WebP images are loaded asynchronously into browser RAM upon initialization, avoiding network lags, flickering, or white screens during user interaction.
-  - **Garbage Collection Optimization:** Instead of creating and destroying multiple DOM Image objects dynamically, the engine keeps a static array cache and strictly mutates a single `<img>` source reference, keeping CPU and RAM utilization at an absolute minimum.
-- **Responsive & Mobile-First Touch Interactions:** Fully integrated touch event listeners (`touchstart`, `touchmove`) with scaled drag-to-rotation ratios tailored for mobile and tablet devices.
+**Canlı örnek / Live demo:** [22 Litre Market Alışveriş Sepeti](https://www.zumrutplastik.com.tr/22-litre-market-alisveris-sepeti)
 
 ---
 
-## 🛠️ Tech Stack & Languages
+## Özellikler / Features
 
-- **Primary Language:** JavaScript (ES6+ Vanilla JS)
-- **Low-Level Logic Foundation:** C, C++, Assembly (Principles applied to core algorithmic efficiency and data-structure caching)
-- **Asset Format:** WebP (Optimized for hardware-accelerated GPU rendering)
+- Saf JavaScript, harici kütüphane yok (tek dosya: `zp360.js`)
+- Fare ile sürükleme, dokunmatik ekranda parmakla çevirme, klavye ok tuşları
+- Yakınlaştırma ve tam ekran
+- Küçük resim şeridi ile açıya atlama
+- Görseller açılışta önceden yüklenir, yükleme çubuğu gösterilir
+- Otomatik dönüş (kapatılabilir); "hareketi azalt" ayarı açık olan cihazlarda dikkate alınır
+- Erişilebilirlik: `aria-label` ve klavye odağı
 
----
+## Kurulum / Usage
 
-## 🚀 Quick Setup & Usage
+1. Ürünü 10°'de bir çekilmiş 36 kare olarak hazırlayın ve şöyle adlandırın:
+   `01.webp`, `02.webp` … `36.webp`
 
-To integrate `zp360.js` into your product view container, simply include the script and initialize it with your sequenced asset array:
+2. Sayfaya görüntüleyici kutusunu ve script'i ekleyin:
 
-```javascript
-// Example initialization
-const viewer = new ZP360Viewer({
-  containerId: 'product-360-container',
-  imagePath: './sepet-360/',
-  totalFrames: 36,
-  autoRotate: true,
-  dampingFactor: 0.95
-});
+```html
+<div class="zp360"
+     data-base="https://cdn.jsdelivr.net/gh/ramazanzengin-dev/360-View-Test@main/KLASOR/"
+     data-count="36"
+     data-ext=".webp"
+     data-label="22 Litre Market Alışveriş Sepeti 360° görünümü"></div>
+
+<script src="https://cdn.jsdelivr.net/gh/ramazanzengin-dev/360-View-Test@main/zp360.js" defer></script>
 ```
 
----
-*Developed for digital transformation and 3D product simulation solutions at Zümrüt Plastik.*
+`KLASOR/` yerine görsellerin bulunduğu klasörü yazın.
+
+## Ayarlar / Options
+
+| Özellik | Varsayılan | Açıklama |
+|---|---|---|
+| `data-base` | — | Kare görsellerinin klasör adresi (sonunda `/` olmalı) |
+| `data-count` | `36` | Kare sayısı |
+| `data-ext` | `.webp` | Dosya uzantısı |
+| `data-thumbs` | `10` | Küçük resim sayısı |
+| `data-sensitivity` | `8` | Sürükleme hassasiyeti (piksel / kare) |
+| `data-autoplay` | açık | Otomatik dönüşü kapatmak için `"false"` |
+| `data-color` | `#1f5fd6` | Vurgu rengi |
+| `data-label` | `Ürünün 360° görünümü` | Ekran okuyucu metni |
+| `data-frames-var` | — | Görsel adreslerini bir dizi değişkeninden almak için değişken adı |
+
+## Lisans / License
+
+MIT — ayrıntılar için [LICENSE](LICENSE) dosyasına bakın.
